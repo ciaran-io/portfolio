@@ -1,7 +1,15 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
+import { resolve } from 'path'
+
 export default defineNuxtConfig({
 	// Source directory
 	srcDir: 'src/',
+
+	//aliases
+	alias: {
+		icons: resolve(__dirname, './src/assets/images/icons/'),
+		img: resolve(__dirname, './src/assets/images/'),
+	},
 
 	// Target: https://go.nuxtjs.dev/config-target
 	target: 'static',
@@ -28,7 +36,9 @@ export default defineNuxtConfig({
 	plugins: [],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
-	components: true,
+	components: {
+		dirs: ['~/components', '~/components/navigation'],
+	},
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
@@ -44,6 +54,7 @@ export default defineNuxtConfig({
 	build: {
 		postcss: {
 			plugins: {
+				'tailwindcss/nesting': {},
 				tailwindcss: {},
 				autoprefixer: {},
 			},
