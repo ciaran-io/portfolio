@@ -3,60 +3,77 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-	.wrapper {
-		@apply max-w-screen-lg mx-auto;
-
-		@screen lg {
-			@apply max-w-screen-xl;
-		}
-	}
-	.gutter {
-		&-side {
-			@apply px-5;
-		}
-	}
-}
-
-@layer components {
-	.tab-active {
-		@apply text-orange-400;
-
-		&-border::before {
-			content: '';
-			display: block;
-			height: stretch;
-			background: red;
-			width: 1px;
-			position: absolute;
-			top: 0px;
-			left: -16px;
-		}
-
-		/* @screen md {
-			@apply border-b-0 border-l;
-		} */
-	}
-}
-.card {
-	@apply rounded-2xl px-8 pt-8 pb-10;
-
-	&-content-inner {
-		@apply md:ml-8 mt-14 text-gray-300;
-	}
-
-	&-shadow {
-		background: #525360;
-		box-shadow: inset 7px 7px 10px #3b3c45, inset -7px -7px 10px #696a7b;
-	}
-}
-
+/* root styles */
 :root {
+	/* theme colors */
 	--primary-charcoal: #525360;
-	--primary-charcoal-light: rgba(20, 31, 66, 0.8);
+	--primary-charcoal-light: #696a7b;
 	--secondary-munsell: hsl(191, 95%, 34%);
 	--yellow-orange: #feb548;
 	--neon-orange: #ec591f;
 	--primary-red: #c2410c;
 	--android-green: hsl(81, 49%, 53%);
+}
+
+/* base styles */
+.wrapper {
+	@apply max-w-screen-md mx-auto;
+
+	@screen lg {
+		@apply max-w-screen-xl;
+	}
+}
+
+.gutter {
+	&-side {
+		@apply px-3;
+	}
+}
+
+/* components */
+.tab-active {
+	@apply text-orange-400;
+
+	&-border::before {
+		content: '';
+		display: block;
+		height: stretch;
+		background: red;
+		width: 1px;
+		position: absolute;
+		top: 0px;
+		left: -16px;
+	}
+}
+
+/* card components */
+.card {
+	@apply rounded-2xl px-6 pt-8 pb-10;
+
+	&-shadow {
+		background: var(--primary-charcoal);
+		box-shadow: inset 7px 7px 10px #3b3c45,
+			inset -7px -7px 10px var(--primary-charcoal-light);
+	}
+
+	@screen md {
+		@apply px-8;
+	}
+
+	&-content-inner {
+		@apply mt-6 text-gray-300;
+
+		@screen md {
+			@apply mt-10 ml-8;
+		}
+	}
+}
+
+/* button styles */
+button {
+	@apply px-3 py-1 rounded-md;
+
+	&.default {
+		@apply text-white border-2 border-orange-300;
+	}
 }
