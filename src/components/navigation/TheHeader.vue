@@ -1,9 +1,9 @@
 <script>
-	export default {
-		data: () => ({
-			navigation: ['about', 'experience', 'work', 'contact'],
-		}),
-	};
+export default {
+	data: () => ({
+		navigation: ['about', 'experience', 'work', 'contact'],
+	}),
+}
 </script>
 
 <template>
@@ -32,13 +32,13 @@
 				</svg>
 			</button>
 
-			<div class="gap-x-3 flex text-gray-300 capitalize">
-				<ul class="flex gap-2">
+			<div class="md:gap-x-5 md:flex hidden text-gray-300 capitalize">
+				<ul class="md:gap-x-4 md:items-center flex">
 					<li v-for="(menu, index) in navigation" :key="index">
 						<a href=""> {{ (index += 1) }} {{ menu }} </a>
 					</li>
 				</ul>
-				<button>Resume</button>
+				<button class="default">Resume</button>
 			</div>
 		</div>
 	</header>
