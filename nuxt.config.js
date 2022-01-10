@@ -36,15 +36,14 @@ export default defineNuxtConfig({
 	plugins: [],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
-	components: {
-		dirs: ['~/components', '~/components/navigation'],
-	},
+	components: ['~/components/', '~/components/navigation'],
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
 		// https://go.nuxtjs.dev/eslint
 		'@nuxtjs/eslint-module',
 		'@nuxtjs/tailwindcss',
+		'@nuxt/image',
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
@@ -66,5 +65,18 @@ export default defineNuxtConfig({
 		cssPath: '~/assets/css/main.css',
 		configPath: 'tailwind.config.js',
 		viewer: false,
+	},
+
+	// Nuxt image module
+	image: {
+		presets: {
+			profile: {
+				modifiers: {
+					fit: 'cover',
+					format: 'webp',
+					quality: '85',
+				},
+			},
+		},
 	},
 })
