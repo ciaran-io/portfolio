@@ -108,14 +108,14 @@ export default {
 					</p>
 				</div>
 
-				<nuxt-img
-					preset="profile"
-					sizes="sm:100vw md:100vw lg:100vw"
-					class="md:place-self-center aspect-square w-40 h-40 rounded-md"
-					src="/ciaran-store.jpeg"
-					alt="profile of picture of ciaran in his business natural living"
-					loading="lazy"
-				/>
+				<div class="md:place-self-end flex gap-4">
+					<img
+						src="~/img/ciaran-store.webp "
+						loading="lazy"
+						class="rounded-md w-[200px] h-[200px]"
+						alt="profile of picture of ciaran in his business natural living"
+					/>
+				</div>
 
 				<ul class="justify-self-start gap-x-6 gap-y-4 grid grid-cols-2">
 					<li
@@ -156,7 +156,7 @@ export default {
 	</section>
 </template>
 
-<style lang="postcss" scoped>
+<style lang="postcss" scopped>
 .content-heading {
 	@apply grid
 		items-center

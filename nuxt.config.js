@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from '@nuxt/bridge'
+import { defineNuxtConfig } from 'nuxt3'
 import { resolve } from 'path'
 
 export default defineNuxtConfig({
@@ -11,9 +11,6 @@ export default defineNuxtConfig({
 		img: resolve(__dirname, './src/assets/images/'),
 	},
 
-	// Target: https://go.nuxtjs.dev/config-target
-	target: 'static',
-
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		title: 'portfolio - Ciarant.dev',
@@ -22,7 +19,6 @@ export default defineNuxtConfig({
 		},
 		meta: [
 			{ charset: 'utf-8' },
-			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			{ hid: 'description', name: 'description', content: '' },
 			{ name: 'format-detection', content: 'telephone=no' },
 		],
@@ -39,12 +35,7 @@ export default defineNuxtConfig({
 	components: ['~/components/', '~/components/navigation'],
 
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-	buildModules: [
-		// https://go.nuxtjs.dev/eslint
-		'@nuxtjs/eslint-module',
-		'@nuxtjs/tailwindcss',
-		'@nuxt/image',
-	],
+	buildModules: [],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
 	modules: [],
@@ -52,29 +43,11 @@ export default defineNuxtConfig({
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {
 		postcss: {
-			plugins: {
-				'tailwindcss/nesting': {},
-				tailwindcss: {},
-				autoprefixer: {},
-			},
-		},
-	},
-
-	// Tailwind modile config
-	tailwindcss: {
-		cssPath: '~/assets/css/main.css',
-		configPath: 'tailwind.config.js',
-		viewer: false,
-	},
-
-	// Nuxt image module
-	image: {
-		presets: {
-			profile: {
-				modifiers: {
-					fit: 'cover',
-					format: 'webp',
-					quality: '85',
+			postcssOptions: {
+				plugins: {
+					'tailwindcss/nesting': {},
+					tailwindcss: {},
+					autoprefixer: {},
 				},
 			},
 		},

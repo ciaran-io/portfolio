@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<TheHeader class="wrapper" />
-		<Nuxt />
+		<slot />
 		<LazyTheFooter />
 	</div>
 </template>
