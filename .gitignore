@@ -91,3 +91,6 @@ sw.*
 
 # nuxt 3 
 .output
+
+#cloudflare
+wrangler.toml

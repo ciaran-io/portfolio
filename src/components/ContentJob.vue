@@ -84,9 +84,9 @@ export default {
 		<div
 			v-for="(data, index) in profileData"
 			:key="data.index"
-			class="card card-shadow card-content"
+			class="card card-shadow card-content card-spacing-large"
 		>
-			<div class="content-heading">
+			<div :id="index" class="content-heading">
 				<h2>
 					<span
 						class="text-base after:content-['◍'] after:text-[8px] after:mx-1"
@@ -108,11 +108,13 @@ export default {
 					</p>
 				</div>
 
-				<div class="md:place-self-end flex gap-4">
+				<div class="md:justify-self-center">
 					<img
 						src="~/img/ciaran-store.webp "
 						loading="lazy"
-						class="rounded-md w-[200px] h-[200px]"
+						width="175"
+						height="175"
+						class="rounded-md"
 						alt="profile of picture of ciaran in his business natural living"
 					/>
 				</div>
@@ -166,6 +168,10 @@ export default {
 		text-2xl
 		text-white;
 
+	@screen md {
+		@apply grid-cols-[auto,1fr];
+	}
+
 	&::after {
 		content: '';
 		@apply block
@@ -173,10 +179,6 @@ export default {
 			mx-3
 			h-1
 			 bg-gray-100/10;
-	}
-
-	@screen md {
-		@apply grid-cols-[auto,1fr];
 	}
 }
 </style>

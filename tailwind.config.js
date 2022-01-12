@@ -7,7 +7,16 @@ module.exports = {
 		'./src/nuxt.config.{js,ts}',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			colors: {
+				'primary-charcoal': 'var(--primary-charcoal)',
+				'primary-charcoal-light': 'var(--primary-charcoal-light)',
+				'primary-charcoal-transparent': 'var(--primary-charcoal-transparent)',
+				'yellow-orange': 'var(--yellow-orange)',
+				'neon-orange': 'var(--neon-orange)',
+				'primary-red': 'var(--primary-red)',
+			},
+		},
+		plugins: [],
 	},
-	plugins: [],
 }

@@ -6,13 +6,12 @@
 /* root styles */
 :root {
 	/* theme colors */
-	--primary-charcoal: #525360;
-	--primary-charcoal-light: #696a7b;
-	--secondary-munsell: hsl(191, 95%, 34%);
-	--yellow-orange: #feb548;
-	--neon-orange: #ec591f;
-	--primary-red: #c2410c;
-	--android-green: hsl(81, 49%, 53%);
+	--primary-charcoal: hsl(236, 8%, 35%);
+	--primary-charcoal-light: hsl(237, 8%, 45%);
+	--primary-charcoal-transparent: hsl(236, 8%, 35%, 0.85);
+	--yellow-orange: hsl(36, 99%, 64%);
+	--neon-orange: hsl(17, 84%, 52%);
+	--primary-red: hsl(17, 88%, 40%);
 }
 
 /* base styles */
@@ -31,24 +30,24 @@
 }
 
 /* components */
+
+/* tab components */
 .tab-active {
 	@apply text-orange-400;
 
 	&-border::before {
-		content: '';
-		display: block;
-		height: stretch;
-		background: red;
-		width: 1px;
-		position: absolute;
-		top: 0px;
-		left: -16px;
+		/* left calc is based on padding of the ul element plus border width */
+		@apply bg-primary-red absolute content-[''] w-full h-[2px] bottom-[calc(-1rem+-2px)];
+
+		@screen md {
+			@apply top-0 left-[calc(-1rem+-2px)] w-[2px] h-full;
+		}
 	}
 }
 
 /* card components */
 .card {
-	@apply rounded-2xl px-6 pt-8 pb-10;
+	@apply rounded-2xl;
 
 	&-shadow {
 		background: var(--primary-charcoal);
@@ -56,8 +55,16 @@
 			inset -7px -7px 10px var(--primary-charcoal-light);
 	}
 
-	@screen md {
-		@apply px-8;
+	&-spacing-base {
+		@apply px-6 py-6;
+	}
+
+	&-spacing-large {
+		@apply px-6 pt-8 pb-10;
+
+		@screen md {
+			@apply px-8;
+		}
 	}
 
 	&-content-inner {
@@ -70,10 +77,10 @@
 }
 
 /* button styles */
-button {
+.button {
 	@apply px-3 py-1 rounded-md;
 
-	&.default {
+	&-default {
 		@apply text-white border-2 border-orange-300;
 	}
 }
