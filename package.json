@@ -10,6 +10,6 @@
     "husky": "^7.0.4",
     "nuxt3": "^3.0.0-27366343.1d741cb",
     "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.13"
+    "tailwindcss": "^3.1.7"
   }
 }
